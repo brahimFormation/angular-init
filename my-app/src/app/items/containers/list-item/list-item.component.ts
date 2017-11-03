@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../../interfaces/item.model';
 import { COLLECTION } from '../../collection';
-import { State } from '../../enums/state.enum';
+import { CollectionService } from '../../../core/services/collection/collection.service';
 
 @Component({
   selector: 'app-list-item',
@@ -10,16 +10,11 @@ import { State } from '../../enums/state.enum';
 })
 export class ListItemComponent implements OnInit {
   collection: Item[];
-  state =  State;
 
-  constructor() { }
+  constructor(private _CollectionService: CollectionService) { }
 
   ngOnInit() {
-    this.collection = COLLECTION;
-  }
-
-  changeState(item: Item, newState: State) {
-    item.state = newState;
+    this.collection = this._CollectionService.collection;
   }
 
 }

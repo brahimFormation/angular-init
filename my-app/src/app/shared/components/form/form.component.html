@@ -1,0 +1,22 @@
+<div class="container">
+  <form novalidate class="form" [formGroup]="form" (ngSubmit)="treatmentItem()">
+    <div class="form-group">
+      <input formControlName="name" name="name" class="form-control" type="text" placeholder="Nom et prénom">
+      <div class="alert alert-danger" *ngIf="isError('name')">Champs invalide</div>
+    </div>
+    <div class="from-group">
+      <input formControlName="ref" name="ref" class="form-control" type="text" placeholder="ref ex : 1234">
+      <div class="alert alert-danger" *ngIf="isError('ref')">Champs invalide</div>
+    </div>
+    <div class="from-group">
+      <select formControlName="state" name="state" class="form-control">
+        <option [ngValue]="state.ALIVRER">A livrer</option>
+        <option [ngValue]="state.ENCOURS">En cours de livraison</option>
+        <option [ngValue]="state.LIVREE">Commande livré</option>
+      </select>
+    </div>
+    <div class="from-group">
+      <button [disabled]="form.invalid" class="btn btn-primary" type="submit">Envoyer</button>
+    </div>
+  </form>
+</div>
