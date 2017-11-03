@@ -1,4 +1,4 @@
-import { Component, /*OnInit*/ } from '@angular/core';
+import { Component, ChangeDetectionStrategy, /*OnInit*/ } from '@angular/core';
 import { Item } from '../../interfaces/item.model';
 // import { COLLECTION } from '../../../items/collection';
 import { Router } from '@angular/router';
@@ -7,7 +7,8 @@ import { CollectionService } from '../../../core/services/collection/collection.
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss']
+  styleUrls: ['./add.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddComponent /*implements OnInit*/ {
   // collection: Item[];

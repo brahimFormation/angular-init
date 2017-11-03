@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { State } from '../../../items/enums/state.enum';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Item } from '../../../items/interfaces/item.model';
@@ -6,7 +6,8 @@ import { Item } from '../../../items/interfaces/item.model';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrls: ['./form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormComponent implements OnInit {
   @Output() newItem: EventEmitter<Item> = new EventEmitter();

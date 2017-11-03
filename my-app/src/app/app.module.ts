@@ -5,10 +5,13 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ItemsModule } from './items/items.module';
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
 import { Router } from '@angular/router';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import { CollectionService } from './core/services/collection/collection.service';
 
 
@@ -19,7 +22,10 @@ import { CollectionService } from './core/services/collection/collection.service
     SharedModule,
     ItemsModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   declarations: [
     AppComponent
